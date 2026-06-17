@@ -1,7 +1,7 @@
 <template>
-  <div class="flex h-screen">
+  <div class="flex h-screen min-w-[1100px]">
     <!-- Left Sidebar: Control + Device List -->
-    <div class="w-64 bg-gray-900 p-4 flex flex-col gap-3 border-r border-gray-800 overflow-y-auto flex-shrink-0">
+    <div class="w-56 bg-gray-900 p-4 flex flex-col gap-3 border-r border-gray-800 overflow-y-auto flex-shrink-0">
       <h1 class="text-lg font-bold text-orange-400">Modbus 工业监控</h1>
       <div class="flex gap-2">
         <button @click="startPoll" :disabled="store.isPolling" class="flex-1 bg-green-700 py-1.5 rounded text-xs hover:bg-green-600 disabled:opacity-50">
@@ -42,21 +42,21 @@
     <!-- Middle Area: Topology + Trend Chart -->
     <div class="flex-1 flex flex-col gap-3 p-4 overflow-hidden min-w-0">
       <!-- Topology Graph -->
-      <div class="bg-gray-900 rounded-xl p-3 h-80 flex-shrink-0">
-        <h3 class="text-sm text-gray-400 mb-2">
+      <div class="bg-gray-900 rounded-xl p-3 flex-shrink-0" style="height: 340px;">
+        <h3 class="text-sm text-gray-400 mb-2 flex-shrink-0">
           网络拓扑 — 点击节点查看详情
         </h3>
-        <div class="h-[calc(100%-28px)]">
+        <div class="relative" style="height: calc(100% - 28px);">
           <TopologyGraph />
         </div>
       </div>
 
       <!-- Trend Chart -->
       <div class="bg-gray-900 rounded-xl p-3 flex-1 min-h-0">
-        <h3 class="text-sm text-gray-400 mb-2">
+        <h3 class="text-sm text-gray-400 mb-2 flex-shrink-0">
           实时趋势 — {{ store.selectedDevice?.name || '请选择设备' }}
         </h3>
-        <div class="h-[calc(100%-28px)]">
+        <div class="relative" style="height: calc(100% - 28px);">
           <TrendChart />
         </div>
       </div>
@@ -78,7 +78,7 @@
     </div>
 
     <!-- Right Sidebar: Device Details -->
-    <div class="w-80 bg-gray-900 p-4 flex flex-col gap-3 border-l border-gray-800 overflow-y-auto flex-shrink-0">
+    <div class="w-64 bg-gray-900 p-4 flex flex-col gap-3 border-l border-gray-800 overflow-y-auto flex-shrink-0">
       <template v-if="store.selectedDevice">
         <div class="flex items-center justify-between">
           <h3 class="text-sm font-bold text-orange-400">设备详情</h3>

@@ -1,6 +1,6 @@
 <template>
-  <v-chart v-if="chartOption" :option="chartOption" class="h-56" autoresize />
-  <div v-else class="h-56 flex items-center justify-center text-gray-600 text-sm">开始采集后显示趋势</div>
+  <v-chart v-if="chartOption" :option="chartOption" class="w-full h-full" autoresize />
+  <div v-else class="w-full h-full flex items-center justify-center text-gray-600 text-sm">开始采集后显示趋势</div>
 </template>
 
 <script setup lang="ts">
